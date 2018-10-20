@@ -15,7 +15,7 @@ output:
 ##Introduction
 Through this project, I hope to 1) learn how to run tasks online (MTurk or Prolific) to add this skill as a tool in my repertoire for future research and 2) use this method to replicate a recent finding on spatial reasoning and gender bias, which is relevant to my own research on early childhood CS education (spatial reasoning skills correlate to CS success). Experiment 1 in this paper demonstrates that a difference in performance between genders on a spatial reasoning task can be decreased by framing the tasks as a social, rather than spatial.
 
-To conduct this study I will develop a web version of the two spatial reasoning tasks described in the paper, which are available online as PDF downloads from the OSF site. This web version of the test will also gather gender information. I will post this short spatial reasoning test on Mechanical Turk, excluding the AQ test from the original study, as the authors did not include these scores in the analyses they present. After data collection, I will grade each respondent's test responses, likely through the use of an autograder program which I will write; this autograder will require more time upfront, but will make grading quicker overall and reduce the possibility of errors in grading. After grading each participant's responses, I will collate these scores with the demographic information to have a dataset that should resemble that of the original study (minus the AQ data).
+To conduct this study I will develop a web version of the two spatial reasoning tasks described in the paper, which are available online as PDF downloads from the OSF site. This web version of the test will also gather gender information. I will post this short spatial reasoning test on Mechanical Turk, excluding the AQ test from the original study, as the authors did not include these scores in the analyses they present. After data collection, I will grade each respondent's test responses, likely through the use of an auto-grader program which I will write; this auto-grader will require more time upfront, but will make grading quicker overall and reduce the possibility of errors in grading. After grading each participant's responses, I will collate these scores with the demographic information to have a data set that should resemble that of the original study (minus the AQ data).
 
 My primary concern in replicating this study online is in finding enough respondents with the available resources (the original experiment included 139 subjects). By removing the AQ test, which was not used in the analyses presented in the paper, I can cut the task time in half and therefore recruit twice the number of participants for the same cost.
 
@@ -26,30 +26,48 @@ The original paper can be found here: https://github.com/gdietz44/tarampi2016/bl
 ##Methods
 
 ###Power Analysis
-
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
+<!-- Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size. -->
+This section will be completed after the in-class power analysis discussion this week.
 
 ###Planned Sample
-
-Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.
+<!-- Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any. -->
+We will gather data from Mechanical Turk workers. We will not exclude or preselect based on any criteria. The sample size will be determined based on the power analysis.
 
 ###Materials
+<!-- All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article. -->
 
-All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+In the original study, "the experiment consisted of two timed pencil-and-paper tests of perspective-taking ability: the object-perspective/spatial-orientation test (Hegarty & Waller, 2004) and the standardized road-map test of direction sense (the road-map test; Money et al., 1965; modified by Zacks et al., 2002). In the spatial-orientation test, participants were shown an array of objects. In the spatial condition (Fig. 1, left panel), a statement instructed participants to imagine standing in the place of one object on the map, facing another object, and indicating the direction to a third object (e.g., “Imagine you are standing at the cat and facing the tree. Point to the car.”). Below the array of objects was a circle with an arrow that pointed toward the object that participants imagined facing. Participants drew a second arrow to indicate the direction to the third object. The test was the same in the social condition (Fig. 1, right panel), except that a human figure rather than an object was the starting location, and participants were asked to take the perspective of the person as they indicated the relative direction to a third object. Participants were not allowed to make any marks on the array or rotate the page. Responses were scored by calculating the absolute angular deviation from the correct answer for each trial (which could range from 0° to 180°) and averaging these errors across trials. Unanswered items were assigned an angular deviation of 90° as chance performance. The road-map test consisted of a bird’s-eye diagram of a path through a city (see Fig. 2, left panel). Participants were instructed to imagine walking along the path and write either “R” or “L” at each corner to indicate whether to take a right or left turn. The social version of the task included a human figure at every corner (see Fig. 2, right panel). Participants in the social condition were instructed to imagine themselves taking the perspective of the person as he or she walked along the path. Their score was the number of corners labeled correctly."
+
+In this replication, we have downloaded the original study materials (available at: https://osf.io/7qu6s/) and have converted them to an online format. In task 1, the circle with an arrow has been replaced by an angle UI picker (visually quite similar). In task two, participants are asked to mark corners (highlighted in sequential order) with key-presses. In both cases, participants are asked not to rotate their head or computer screen or use external aids (to match with the request not to to turn or mark the paper).
 
 ###Procedure	
+In Tarampi et al.’s original study, "Males and females were tested individually or in same-sex groups of 2 to 8 participants. In both conditions, participants were told that they would complete two tasks that would test their perspective-taking ability. Participants in the spatial condition were given unmodified tests and also received the following information, which emphasized that perspective taking is a spatial ability in which men have an advantage over women: 
 
-Can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+> Perspective-taking ability can be thought of as a measure of spatial ability. Spatial ability is a cognitive ability that is defined as understanding the relations between objects in space and being able to mentally manipulate them and respond correctly. Males often score higher on measures of spatial ability. 
+
+Participants in the social condition were given modified tests, which included human figures, and received the following additional information, which emphasized that perspective taking is an empathetic ability in which women have an advantage over men: 
+
+> Perspective-taking ability can be thought of as a measure of empathetic ability. Empathetic ability is a social ability that is defined as being able to identify with and understand what another person is seeing or feeling, and respond appropriately. Females often score higher on measures of empathetic ability. 
+
+The participants then completed the two perspective taking tasks, with task order counterbalanced across participants. On the road-map test, participants were given 30 s to complete as many of the 32 items as they could. On the spatial-orientation test, they were allowed 5 min to complete 12 test items. Finally, they completed the AQ."
+
+In the replication study, all participants were tested individually, through Amazon's Mechanical Turk. We do not include the AQ test because the original authors do not use it in their reported analyses.
 
 ###Analysis Plan
 
-Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.  
+<!-- Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.   -->
 
-**Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+We included data from all participants who complete the task. As described in the materials section, scores were calculated based on the mean absolute angular deviation for task 1, and on the raw number of correctly labelled corners for task 2. As described in the results section of the original study, we will run a 2 (sex: male, female) by 2 (condition: social, spatial) between-subjects ANOVA for each task. We will also run a t-test comparing performance across conditions for each gender and comparing performance across gender for each condition.
+
+####Potential Additional Analysis
+One potential additional analysis would require adding a single short question to the demographic information regarding computer science/programming experience that is not included in the original study. Prior research demonstrates a correlation between programming experience and spatial reasoning skills, and MTurk workers, having chosen to make money as online workers, are likely more tech-savvy than the general population. By collecting data on programming experience, we could see how this experience might interplay with performance by gender or condition.
 
 ###Differences from Original Study
 
-Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect.
+<!-- Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect. -->
+
+The primary difference between these study is the materials (paper test vs online test) and the corresponding difference in sample (data collected from online workers as opposed to undergraduate students). The difference in materials is not expected to effect the results, but it may affect the test raw scores, particularly in the road-map test. Namely, is it quicker to press a key than to write a letter, so participants may be able to answer questions (and there fore move onto the next one) more quickly. This difference may lead to higher raw scores overall, but this difference should not ultimately effect the outcome given the both males and females in both conditions will be affected by this difference.
+The difference in subject population has a small chance of impacting the raw scores as well based on a series of assumptions: if MTurk workers have more programming/computer science experience than the original population and if this experience truly contributes to notably improved spatial reasoning skills, we might expect to see higher raw scores than in the original population as well.
 
 ### Methods Addendum (Post Data Collection)
 
@@ -69,21 +87,28 @@ You can comment this section out prior to final report with data collection.
 
 Data preparation following the analysis plan.
 	
-```{r include=F}
+```{r include=T, warning=FALSE, eval=FALSE}
 ###Data Preparation
-
 ####Load Relevant Libraries and Functions
+library(tidyr)
+library(ggplot2)
+library(dplyr)
 
 ####Import data
+# read csv file
 
 #### Data exclusion / filtering
+# exclude unneccessary columns
+# split into 2 data frames (one for each statistical test, both including demographic info)
 
 #### Prepare data for analysis - create columns etc.
+# gather function (on each line: subject id, gender, score for one trial)
+# group by and summarise
 ```
 
 ### Confirmatory analysis
 
-The analyses as specified in the analysis plan.  
+As described in the analysis plan, we will run a 2 (sex: male, female) by 2 (condition: social, spatial) between-subjects ANOVA for each task. We will also run a t-test comparing performance across conditions for each gender and comparing performance across gender for each condition. 
 
 *Side-by-side graph with original graph is ideal here*
 
