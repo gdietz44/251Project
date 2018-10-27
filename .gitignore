@@ -25,3 +25,5 @@
 *.knit.md
 *cache
 *.results
+
+mturk/

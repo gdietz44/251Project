@@ -36,9 +36,9 @@ We will gather data from Mechanical Turk workers. We will not exclude or presele
 ###Materials
 <!-- All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article. -->
 
-In the original study, "the experiment consisted of two timed pencil-and-paper tests of perspective-taking ability: the object-perspective/spatial-orientation test (Hegarty & Waller, 2004) and the standardized road-map test of direction sense (the road-map test; Money et al., 1965; modified by Zacks et al., 2002). In the spatial-orientation test, participants were shown an array of objects. In the spatial condition (Fig. 1, left panel), a statement instructed participants to imagine standing in the place of one object on the map, facing another object, and indicating the direction to a third object (e.g., “Imagine you are standing at the cat and facing the tree. Point to the car.”). Below the array of objects was a circle with an arrow that pointed toward the object that participants imagined facing. Participants drew a second arrow to indicate the direction to the third object. The test was the same in the social condition (Fig. 1, right panel), except that a human figure rather than an object was the starting location, and participants were asked to take the perspective of the person as they indicated the relative direction to a third object. Participants were not allowed to make any marks on the array or rotate the page. Responses were scored by calculating the absolute angular deviation from the correct answer for each trial (which could range from 0° to 180°) and averaging these errors across trials. Unanswered items were assigned an angular deviation of 90° as chance performance. The road-map test consisted of a bird’s-eye diagram of a path through a city (see Fig. 2, left panel). Participants were instructed to imagine walking along the path and write either “R” or “L” at each corner to indicate whether to take a right or left turn. The social version of the task included a human figure at every corner (see Fig. 2, right panel). Participants in the social condition were instructed to imagine themselves taking the perspective of the person as he or she walked along the path. Their score was the number of corners labeled correctly."
+In the original study, "the experiment consisted of two timed pencil-and-paper tests of perspective-taking ability: the object-perspective/spatial-orientation test (Hegarty & Waller, 2004) and the standardized road-map test of direction sense (the road-map test; Money et al., 1965; modified by Zacks et al., 2002)...The road-map test consisted of a bird’s-eye diagram of a path through a city (see Fig. 2, left panel). Participants were instructed to imagine walking along the path and write either “R” or “L” at each corner to indicate whether to take a right or left turn. The social version of the task included a human figure at every corner (see Fig. 2, right panel). Participants in the social condition were instructed to imagine themselves taking the perspective of the person as he or she walked along the path. Their score was the number of corners labeled correctly."
 
-In this replication, we have downloaded the original study materials (available at: https://osf.io/7qu6s/) and have converted them to an online format. In task 1, the circle with an arrow has been replaced by an angle UI picker (visually quite similar). In task two, participants are asked to mark corners (highlighted in sequential order) with key-presses. In both cases, participants are asked not to rotate their head or computer screen or use external aids (to match with the request not to to turn or mark the paper).
+In this replication, we have downloaded the original study materials (available at: https://osf.io/7qu6s/) and have converted them to an online format. We do not attempt to spatial orientation task. In task two, participants label corners using drop-down menus placed at each corner. Participants are asked not to rotate their head or computer screen or use external aids (to match with the request not to to turn or mark the paper). The Javascript code randomly assigns the condition. The debug (non data-collecting) version of the task can be found here: http://web.stanford.edu/~gdietz44/psych251/hello.html.
 
 ###Procedure	
 In Tarampi et al.’s original study, "Males and females were tested individually or in same-sex groups of 2 to 8 participants. In both conditions, participants were told that they would complete two tasks that would test their perspective-taking ability. Participants in the spatial condition were given unmodified tests and also received the following information, which emphasized that perspective taking is a spatial ability in which men have an advantage over women: 
@@ -51,22 +51,23 @@ Participants in the social condition were given modified tests, which included h
 
 The participants then completed the two perspective taking tasks, with task order counterbalanced across participants. On the road-map test, participants were given 30 s to complete as many of the 32 items as they could. On the spatial-orientation test, they were allowed 5 min to complete 12 test items. Finally, they completed the AQ."
 
-In the replication study, all participants were tested individually, through Amazon's Mechanical Turk. We do not include the AQ test because the original authors do not use it in their reported analyses.
+In the replication study, all participants were tested individually, through Amazon's Mechanical Turk. We choose only to include the road map test, because its short duration enabled us to collect a large amount of data and because analyses of the two tests were done separately. We do not include the AQ test because the original authors do not use it in their reported analyses.
 
 ###Analysis Plan
 
 <!-- Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.   -->
 
-We included data from all participants who complete the task. As described in the materials section, scores were calculated based on the mean absolute angular deviation for task 1, and on the raw number of correctly labelled corners for task 2. As described in the results section of the original study, we will run a 2 (sex: male, female) by 2 (condition: social, spatial) between-subjects ANOVA for each task. We will also run a t-test comparing performance across conditions for each gender and comparing performance across gender for each condition.
+We included data from all participants who complete the task. As described in the materials section, scores were calculated based on the mean absolute angular deviation for task 1, and on the raw number of correctly labelled corners for task 2. As described in the results section of the original study, we will run a 2 (sex: male, female) by 2 (condition: social, spatial) between-subjects ANOVA.
 
 ####Potential Additional Analysis
+In line with the original study, we will also run t-tests comparing performance across conditions for each gender and comparing performance across gender for each condition.
 One potential additional analysis would require adding a single short question to the demographic information regarding computer science/programming experience that is not included in the original study. Prior research demonstrates a correlation between programming experience and spatial reasoning skills, and MTurk workers, having chosen to make money as online workers, are likely more tech-savvy than the general population. By collecting data on programming experience, we could see how this experience might interplay with performance by gender or condition.
 
 ###Differences from Original Study
 
 <!-- Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect. -->
 
-The primary difference between these study is the materials (paper test vs online test) and the corresponding difference in sample (data collected from online workers as opposed to undergraduate students). The difference in materials is not expected to effect the results, but it may affect the test raw scores, particularly in the road-map test. Namely, is it quicker to press a key than to write a letter, so participants may be able to answer questions (and there fore move onto the next one) more quickly. This difference may lead to higher raw scores overall, but this difference should not ultimately effect the outcome given the both males and females in both conditions will be affected by this difference.
+The primary difference between these study is the materials (paper test vs online test) and the corresponding difference in sample (data collected from online workers as opposed to undergraduate students). The difference in materials is not expected to effect the results, but it may affect the test raw scores on the road-map test. Namely, selecting from a drop-down may take longer than writing a letter, so participants may not be able to answer questions (and therefore move onto the next one) as quickly. This difference may lead to higher raw scores overall but should not ultimately affect the outcome because both male and female participants in both conditions will be affected by this difference.
 The difference in subject population has a small chance of impacting the raw scores as well based on a series of assumptions: if MTurk workers have more programming/computer science experience than the original population and if this experience truly contributes to notably improved spatial reasoning skills, we might expect to see higher raw scores than in the original population as well.
 
 ### Methods Addendum (Post Data Collection)
@@ -87,8 +88,9 @@ You can comment this section out prior to final report with data collection.
 
 Data preparation following the analysis plan.
 	
-```{r include=T, warning=FALSE, eval=FALSE}
+```{r include=T, warning=FALSE}
 ###Data Preparation
+
 ####Load Relevant Libraries and Functions
 library(tidyr)
 library(ggplot2)
@@ -96,25 +98,82 @@ library(dplyr)
 
 ####Import data
 # read csv file
+raw_data = read.csv("../mturk/pilot-results.csv")
 
 #### Data exclusion / filtering
-# exclude unneccessary columns
-# split into 2 data frames (one for each statistical test, both including demographic info)
 
 #### Prepare data for analysis - create columns etc.
 # gather function (on each line: subject id, gender, score for one trial)
+tidy_data = raw_data %>%
+  select(-starts_with("answer_")) %>%
+  gather(corner, correct, -c("participant", "condition", "sex", "cs_experience")) %>%
+  mutate(corner = substr(corner,9,9))
 # group by and summarise
+summary_data = tidy_data %>%
+  group_by(participant, condition, sex, cs_experience) %>%
+  summarise(score = sum(correct))
 ```
 
 ### Confirmatory analysis
 
-As described in the analysis plan, we will run a 2 (sex: male, female) by 2 (condition: social, spatial) between-subjects ANOVA for each task. We will also run a t-test comparing performance across conditions for each gender and comparing performance across gender for each condition. 
+As described in the analysis plan, we ran a 2 (sex: male, female) by 2 (condition: social, spatial) between-subjects ANOVA for each task.
+```{r include=T, warning=FALSE}
+anova <- aov(score ~ sex * condition, data = summary_data)
+summary(anova)
+```
 
 *Side-by-side graph with original graph is ideal here*
+```{r include=T, warning=FALSE}
+graph_data = summary_data %>%
+  group_by(condition, sex) %>%
+  summarise(mean = mean(score), ci = 1.96*(sd(score)/sqrt(n())))
+
+ggplot(graph_data, aes(x=sex, y=mean, fill=condition)) +
+  geom_bar(position="dodge", stat="identity") + 
+  theme_bw() +
+  ylim(0, 30) +
+  ylab("Mean Number Correct") +
+  theme(axis.title.x = element_blank()) +
+  scale_x_discrete(limits=c('M','F'), labels=c('Males','Females')) +
+  scale_fill_manual(values=c("#E2E3E4","#8C8E90"),name='Conditions',breaks=c('spatial','social'),labels=c('Spatial Condition','Social Condition')) +
+  geom_errorbar(aes(ymin=mean-ci,ymax=mean+ci),width=0.2,position=position_dodge(.9))
+```
+![Original graph](original_graph.png)
 
 ###Exploratory analyses
+Below we include the follow-up analyses, including the t-tests in the original studies and our analyses of CS experience. They are not evaluated in this submission because of lack of data.
+```{r include=T, warning=FALSE, eval=F}
+###T-Tests
+####Female Score By Condition
+female_data = summary_data %>%
+  subset(sex=='F')
+female_by_condition <- t.test(score ~ condition, data = female_data)
+summary(female_by_condition)
 
-Any follow-up analyses desired (not required).  
+####Male Score By Condition
+male_data = summary_data %>%
+  subset(sex=='M')
+male_by_condition <- t.test(score ~ condition, data = male_data)
+summary(male_by_condition)
+
+####Spatial Score By Sex
+spatial_data = summary_data %>%
+  subset(condition=='spatial')
+spatial_by_sex <- t.test(score ~ sex, data = spatial_data)
+summary(spatial_by_sex)
+
+####Social Score By Sex
+social_data = summary_data %>%
+  subset(condition=='social')
+social_by_sex <- t.test(score ~ sex, data = social_data)
+summary(social_by_sex)
+
+###CS Experience
+cs_anova <- aov(score ~ sex * cs_experience, data = summary_data)
+summary(cs_anova)
+```
+
+
 
 ## Discussion
 
