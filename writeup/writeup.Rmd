@@ -130,7 +130,6 @@ graph_data = summary_data %>%
 
 graph_data$condition <- factor(graph_data$condition, levels = c('spatial','social'))
 
-png('pilot_plot.png')
 ggplot(graph_data, aes(x=sex, y=mean, fill=condition)) +
   geom_bar(position="dodge", stat="identity") + 
   theme_bw() +
@@ -140,7 +139,6 @@ ggplot(graph_data, aes(x=sex, y=mean, fill=condition)) +
   scale_x_discrete(limits=c('M','F'), labels=c('Males','Females')) +
   scale_fill_manual(values=c("#8C8E90","#E2E3E4"),name='Conditions',limits=c('spatial','social'),labels=c('Spatial Condition','Social Condition')) +
   geom_errorbar(aes(ymin=mean-ci,ymax=mean+ci),width=0.2,position=position_dodge(.9))
-dev.off()
 ```
 ![Original graph](original_graph.png)
 
