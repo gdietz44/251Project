@@ -27,7 +27,7 @@ The original paper can be found here: https://github.com/gdietz44/tarampi2016/bl
 
 ###Power Analysis
 <!-- Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size. -->
-This section will be completed after the in-class power analysis discussion this week.
+The reported effect size for the interaction of interest is a partial eta squared equal to 0.03. A power analysis for 80% suggests a sample size of 256. This large number may pose some challenge in monetary resources, but with a very short task should be feasible.
 
 ###Planned Sample
 <!-- Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any. -->
