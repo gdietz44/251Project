@@ -31,7 +31,7 @@ This section will be completed after the in-class power analysis discussion this
 
 ###Planned Sample
 <!-- Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any. -->
-We will gather data from Mechanical Turk workers. We will not exclude or preselect based on any criteria. The sample size will be determined based on the power analysis.
+We will gather data from 256 Mechanical Turk workers. We will not exclude or preselect based on any criteria. The sample size was determined by a power analysis for 80 percent power based on the original reported effect.
 
 ###Materials
 <!-- All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article. -->
@@ -61,7 +61,7 @@ We included data from all participants who complete the task. As described in th
 
 ####Potential Additional Analysis
 In line with the original study, we will also run t-tests comparing performance across conditions for each gender and comparing performance across gender for each condition.
-One potential additional analysis would require adding a single short question to the demographic information regarding computer science/programming experience that is not included in the original study. Prior research demonstrates a correlation between programming experience and spatial reasoning skills, and MTurk workers, having chosen to make money as online workers, are likely more tech-savvy than the general population. By collecting data on programming experience, we could see how this experience might interplay with performance by gender or condition.
+One potential additional analysis would require adding a single short question to the demographic information regarding computer science/programming experience that is not included in the original study. Prior research demonstrates a correlation between programming experience and spatial reasoning skills, and MTurk workers, having chosen to make money as online workers, are likely more tech-savvy than the general population. By collecting data on programming experience, we could see how this experience might interplay with performance by gender or condition through a 3-way ANOVA.
 
 ###Differences from Original Study
 
