@@ -67,7 +67,7 @@ One potential additional analysis would require adding a single short question t
 
 <!-- Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect. -->
 
-The primary difference between these study is the materials (paper test vs online test) and the corresponding difference in sample (data collected from online workers as opposed to undergraduate students). The difference in materials is not expected to effect the results, but it may affect the test raw scores on the road-map test. Namely, selecting from a drop-down may take longer than writing a letter, so participants may not be able to answer questions (and therefore move onto the next one) as quickly. This difference may lead to higher raw scores overall but should not ultimately affect the outcome because both male and female participants in both conditions will be affected by this difference.
+The primary difference between these study is the materials (paper test vs online test) and the corresponding difference in sample (data collected from online workers as opposed to undergraduate students). The difference in materials is not expected to effect the results, but it may affect the test raw scores on the road-map test. Namely, selecting from a drop-down may introduce more cognitive load than writing a letter, so participants may not be able to answer questions (and therefore move onto the next one) as quickly. This difference may lead to higher raw scores overall but should not ultimately affect the outcome because both male and female participants in both conditions will be affected by this difference.
 The difference in subject population has a small chance of impacting the raw scores as well based on a series of assumptions: if MTurk workers have more programming/computer science experience than the original population and if this experience truly contributes to notably improved spatial reasoning skills, we might expect to see higher raw scores than in the original population as well.
 
 ### Methods Addendum (Post Data Collection)
@@ -98,7 +98,7 @@ library(dplyr)
 
 ####Import data
 # read csv file
-raw_data = read.csv("../mturk/pilot-results.csv")
+raw_data = read.csv("../mturk/pilotB-results.csv")
 
 #### Data exclusion / filtering
 
@@ -112,6 +112,12 @@ tidy_data = raw_data %>%
 summary_data = tidy_data %>%
   group_by(participant, condition, sex, cs_experience) %>%
   summarise(score = sum(correct))
+
+ggplot(raw_data, aes(x=sex)) +
+  geom_histogram(stat="count")
+
+ggplot(summary_data, aes(x=score)) +
+  geom_histogram(stat="count")
 ```
 
 ### Confirmatory analysis
@@ -171,7 +177,7 @@ social_by_sex <- t.test(score ~ sex, data = social_data)
 summary(social_by_sex)
 
 ###CS Experience
-cs_anova <- aov(score ~ sex * cs_experience, data = summary_data)
+cs_anova <- aov(score ~ sex * condition * cs_experience, data = summary_data)
 summary(cs_anova)
 ```
 
