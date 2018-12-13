@@ -38,7 +38,7 @@ We will gather data from 256 Mechanical Turk workers. We will not exclude or pre
 
 In the original study, "the experiment consisted of two timed pencil-and-paper tests of perspective-taking ability: the object-perspective/spatial-orientation test (Hegarty & Waller, 2004) and the standardized road-map test of direction sense (the road-map test; Money et al., 1965; modified by Zacks et al., 2002)...The road-map test consisted of a bird’s-eye diagram of a path through a city (see Fig. 2, left panel). Participants were instructed to imagine walking along the path and write either “R” or “L” at each corner to indicate whether to take a right or left turn. The social version of the task included a human figure at every corner (see Fig. 2, right panel). Participants in the social condition were instructed to imagine themselves taking the perspective of the person as he or she walked along the path. Their score was the number of corners labeled correctly."
 
-In this replication, we have downloaded the original study materials (available at: https://osf.io/7qu6s/) and have converted them to an online format. We do not attempt to spatial orientation task. In task two, participants label corners using drop-down menus placed at each corner. Participants are asked not to rotate their head or computer screen or use external aids (to match with the request not to to turn or mark the paper). The Javascript code randomly assigns the condition. The debug (non data-collecting) version of the task can be found here: http://web.stanford.edu/~gdietz44/psych251/study.html.
+In this replication, we have downloaded the original study materials (available at: https://osf.io/7qu6s/) and have converted them to an online format. We do not attempt to spatial orientation task. In task two, participants label corners using drop-down menus placed at each corner. Participants are asked not to rotate their head or computer screen or use external aids (to match with the request not to to turn or mark the paper). The JavaScript code randomly assigns the condition. The debug (non data-collecting) version of the task can be found here: http://web.stanford.edu/~gdietz44/psych251/study.html.
 
 ###Procedure	
 In Tarampi et al.’s original study, "Males and females were tested individually or in same-sex groups of 2 to 8 participants. In both conditions, participants were told that they would complete two tasks that would test their perspective-taking ability. Participants in the spatial condition were given unmodified tests and also received the following information, which emphasized that perspective taking is a spatial ability in which men have an advantage over women: 
@@ -51,7 +51,7 @@ Participants in the social condition were given modified tests, which included h
 
 The participants then completed the two perspective taking tasks, with task order counterbalanced across participants. On the road-map test, participants were given 30 s to complete as many of the 32 items as they could. On the spatial-orientation test, they were allowed 5 min to complete 12 test items. Finally, they completed the AQ."
 
-In the replication study, all participants were tested individually, through Amazon's Mechanical Turk. We choose only to include the road map test, because its short duration enabled us to collect a large amount of data and because analyses of the two tests were done separately. We do not include the AQ test because the original authors do not use it in their reported analyses. Additionally, to address the original authors' concerns regarding increased congitive load in the digital format, we have increased the study task time by 20% (to 36 seconds) based on a comparison of scores on the paper and digital task for the same participants.
+In the replication study, all participants were tested individually, through Amazon's Mechanical Turk. We choose only to include the road map test, because its short duration enabled us to collect a large amount of data and because analyses of the two tests were done separately. We do not include the AQ test because the original authors do not use it in their reported analyses. Additionally, to address the original authors' concerns regarding increased cognitive load in the digital format, we have increased the study task time by 20% (to 36 seconds) based on a comparison of scores on the paper and digital task for the same participants.
 
 ###Analysis Plan
 
@@ -61,7 +61,7 @@ We included data from all participants who complete the task. As described in th
 
 ####Potential Additional Analysis
 In line with the original study, we will also run t-tests comparing performance across conditions for each gender and comparing performance across gender for each condition.
-One potential additional analysis would require adding two short questions to the demographic information regarding computer science/programming experience and math ability that are not included in the original study. Prior research demonstrates a correlation between STEM experience and spatial reasoning skills, and MTurk workers, having chosen to make money as online workers, are likely more tech-savvy than the general population. By collecting data on programming experience, we could see how this experience might interplay with performance by gender or condition through two 3-way ANOVAs (CS by condition by sex). We are similarly collecting data in math ability because there might be very low variance in CS experience amongst the participants.
+One potential additional analysis would require adding two short questions to the demographic information regarding computer science/programming experience and math ability that are not included in the original study. Prior research demonstrates a correlation between STEM experience and spatial reasoning skills, and MTurk workers, having chosen to make money as online workers, are likely more tech-savvy than the general population. By collecting data on programming experience, we could see how this experience might interplay with performance by gender or condition through two 3-way ANOVAs (CS by condition by sex). We are similarly collecting data in math ability because there might be very low variance in CS experience among the participants.
 
 ###Differences from Original Study
 
@@ -72,124 +72,282 @@ The primary difference between these study is the materials (paper test vs onlin
 The difference in subject population has a small chance of impacting the raw scores as well based on a series of assumptions: if MTurk workers have more programming/computer science experience than the original population and if this experience truly contributes to notably improved spatial reasoning skills, we might expect to see higher raw scores than in the original population as well.
 
 ### Methods Addendum (Post Data Collection)
-
-You can comment this section out prior to final report with data collection.
+Post data collection, we have recognized the necessity of excluding data from workers who did not make an honest attempt at the task and have added additional analyses for the added demographic questions.
 
 #### Actual Sample
-  Sample size, demographics, data exclusions based on rules spelled out in analysis plan
+We collected data from 255 participants (134 male: 76 spatial, 58 social; 121 female: 58 spatial, 63 social) plus one non-binary participant not included in analysis. 
+We run all analyses as planned (excluding a single non-binary participant because we do not have sufficient data for this group), but also run these analyses on data sets that exclude workers workers who labelled no corners and a stricter data set also excluding workers with less than 60% accuracy or who labelled only one corner. When we exclude participants who labelled no corners, our data set includes 246 participants (130 male: 72 spatial, 58 social; 120 female: 57 spatial, 63 social). By also excluding participants who labelled only one corner or incorrectly labelled more than 40% of the corners they labelled (or strictest exclusion criteria, ruling out random guessers) our data set includes 212 participants (114 male: 61 spatial, 53 social; 98 female:  44 spatial, 54 social).
 
 #### Differences from pre-data collection methods plan
-  Any differences from what was described as the original plan, or “none”.
-
+We have also realized the non-interval ordinal data used to measure CS Experience and math ability should not be analyzed with an ANOVA. Therefore we also conduct exploratory analyses using linear models with these variables included as factors, numerics, and split into two groups (greater than 4 years of CS experience or agreement or strong agreement with math ability statement, respectively).
 
 ##Results
-
-
 ### Data preparation
-
 Data preparation following the analysis plan.
 	
-```{r include=T, warning=FALSE}
+```{r include=T, warning=FALSE, message=FALSE}
 ###Data Preparation
 
 ####Load Relevant Libraries and Functions
 library(tidyr)
 library(ggplot2)
 library(dplyr)
+library(MASS)
+library(lsr)
 
 ####Import data
 # read csv file
-raw_data = read.csv("../mturk/pilotB-results.csv")
-
-#### Data exclusion / filtering
+raw_data = read.csv("../mturk/final-results.csv")
 
 #### Prepare data for analysis - create columns etc.
-# gather function (on each line: subject id, gender, score for one trial)
+# gets number of questions answered for each participant (used in exclusion)
+num_answered = raw_data %>%
+  dplyr::select(-starts_with("correct_")) %>%
+  gather(corner, answer, -c("participant", "condition", "sex", "cs_experience", "math_ability")) %>%
+  group_by(participant, answer) %>%
+  summarise(n = n()) %>%
+  spread(answer, n) %>%
+  mutate(num_answered = 32 - `-`) %>%
+  dplyr::select(-c(`L`, `R`, `-`))
+  
+# gather function (on each line: subject id, condition, demographics, num_answered, score for one trial)
 tidy_data = raw_data %>%
-  select(-starts_with("answer_")) %>%
-  gather(corner, correct, -c("participant", "condition", "sex", "cs_experience")) %>%
+  dplyr::select(-starts_with("answer_")) %>%
+  mutate(num_answered = num_answered$num_answered) %>%
+  gather(corner, correct, -c("participant", "condition", "sex", "cs_experience", "math_ability", "num_answered")) %>%
   mutate(corner = substr(corner,9,9))
+
 # group by and summarise
-summary_data = tidy_data %>%
-  group_by(participant, condition, sex, cs_experience) %>%
-  summarise(score = sum(correct))
+d = tidy_data %>%
+  group_by(participant, condition, sex, cs_experience, math_ability, num_answered) %>%
+  summarise(score = sum(correct), percent = score / mean(num_answered)) %>%
+  filter(sex != 'O')
 
-ggplot(raw_data, aes(x=sex)) +
-  geom_histogram(stat="count")
+d$cs_experience <- as.factor(d$cs_experience)
+d$math_ability <- as.factor(d$math_ability)
 
-ggplot(summary_data, aes(x=score)) +
-  geom_histogram(stat="count")
+#### Data exclusion / filtering
+# light exclusion
+d_exclusion_0 <- d %>%
+  filter(num_answered != 0)
+
+#strict exclusion
+d_exclusion_strict <- d_exclusion_0  %>%
+  filter(num_answered != 1 & percent >= .6)
+```
+
+###Descriptive Statistics
+```{r include=T, warning=FALSE}
+condition_count = d %>%
+  group_by(condition, sex) %>%
+  summarise(n = n())
+
+condition_count_no_0 = d_exclusion_0 %>%
+  group_by(condition, sex) %>%
+  summarise(n = n())
+
+condition_count_strict_exclusion = d_exclusion_strict %>%
+  group_by(condition, sex) %>%
+  summarise(n = n())
+
+condition_count$condition <- factor(condition_count$condition, levels = c('spatial','social'))
+
+ggplot(condition_count, aes(x=sex, y=n, fill=condition)) +
+  geom_bar(position="dodge", stat="identity") + 
+  theme_bw() +
+  ylab("Count") +
+  ggtitle("Distribution of Participants Across Conditions Before Exclusion") +
+  theme(axis.title.x = element_blank()) +
+  scale_x_discrete(limits=c('M','F'), labels=c('Males','Females')) +
+  scale_fill_manual(values=c("#8C8E90","#E2E3E4"),name='',limits=c('spatial','social'),labels=c('Spatial Condition','Social Condition'))
+
+ggplot(d, aes(x=score)) +
+  geom_histogram(stat="count") +
+  ggtitle("Distribution of Participant Scores Before Exclusion")
 ```
 
 ### Confirmatory analysis
-
 As described in the analysis plan, we ran a 2 (sex: male, female) by 2 (condition: social, spatial) between-subjects ANOVA for each task.
 ```{r include=T, warning=FALSE}
-anova <- aov(score ~ sex * condition, data = summary_data)
+anova <- aov(score ~ sex * condition, data = d)
 summary(anova)
+etaSquared(anova)
 ```
+While we are able to replicate the finding that male participants score higher than female participants F(1, 251) = 10.76, p = .001, \(\eta\)~p~^2^ = .04, we are not able to replicate the effect of condition F(1, 251) = 2.39, p = .12, \(\eta\)~p~^2^ = .009 or the interaction effect between sex and condition F(1, 251) = 0.035, p = .85, \(\eta\)~p~^2^ = < .001.
 
-*Side-by-side graph with original graph is ideal here*
+#### Replication Graph
 ```{r include=T, warning=FALSE}
-graph_data = summary_data %>%
+graph_data = d %>%
   group_by(condition, sex) %>%
   summarise(mean = mean(score), ci = 1.96*(sd(score)/sqrt(n())))
 
 graph_data$condition <- factor(graph_data$condition, levels = c('spatial','social'))
 
-ggplot(graph_data, aes(x=sex, y=mean, fill=condition)) +
+plot(ggplot(graph_data, aes(x=sex, y=mean, fill=condition)) +
   geom_bar(position="dodge", stat="identity") + 
   theme_bw() +
   ylim(0, 30) +
   ylab("Mean Number Correct") +
+  ggtitle("Mean Correct by Sex and Condition") +
   theme(axis.title.x = element_blank()) +
   scale_x_discrete(limits=c('M','F'), labels=c('Males','Females')) +
-  scale_fill_manual(values=c("#8C8E90","#E2E3E4"),name='Conditions',limits=c('spatial','social'),labels=c('Spatial Condition','Social Condition')) +
-  geom_errorbar(aes(ymin=mean-ci,ymax=mean+ci),width=0.2,position=position_dodge(.9))
+  scale_fill_manual(values=c("#8C8E90","#E2E3E4"),name='',limits=c('spatial','social'),labels=c('Spatial Condition','Social Condition')) +
+  geom_errorbar(aes(ymin=mean-ci,ymax=mean+ci),width=0.2,position=position_dodge(.9)))
 ```
+
+#### Original Graph
+
 ![Original graph](original_graph.png)
 
-###Exploratory analyses
-Below we include the follow-up analyses, including the t-tests in the original studies and our analyses of CS experience. They are not evaluated in this submission because of lack of data.
-```{r include=T, warning=FALSE, eval=F}
-###T-Tests
-####Female Score By Condition
-female_data = summary_data %>%
-  subset(sex=='F')
-female_by_condition <- t.test(score ~ condition, data = female_data)
-summary(female_by_condition)
+###Confirmatory Analyses with Exclusions
+Under both sets of exclusion criteria we see the same results: males preform better than females on the task, but we no effect of condition, nor interaction between sex and condition.
+```{r include=T, warning=FALSE}
+anova_light_exclusion <- aov(score ~ sex * condition, data = d_exclusion_0)
+summary(anova_light_exclusion)
+etaSquared(anova_light_exclusion)
 
-####Male Score By Condition
-male_data = summary_data %>%
-  subset(sex=='M')
-male_by_condition <- t.test(score ~ condition, data = male_data)
-summary(male_by_condition)
-
-####Spatial Score By Sex
-spatial_data = summary_data %>%
-  subset(condition=='spatial')
-spatial_by_sex <- t.test(score ~ sex, data = spatial_data)
-summary(spatial_by_sex)
-
-####Social Score By Sex
-social_data = summary_data %>%
-  subset(condition=='social')
-social_by_sex <- t.test(score ~ sex, data = social_data)
-summary(social_by_sex)
-
-###CS Experience
-cs_anova <- aov(score ~ sex * condition * cs_experience, data = summary_data)
-summary(cs_anova)
+anova_strict_exclusion <- aov(score ~ sex * condition, data = d_exclusion_strict)
+summary(anova_strict_exclusion)
+etaSquared(anova_strict_exclusion)
 ```
 
+###Exploratory Analyses
+#### T-Tests
+In addition to the ANOVA, the original study also included t-tests. Unlike the the original study, we did not find that females were more accurate in the social condition (M = 5.81, SD = 2.99, CI = [5.07, 6.55]) than the spatial condition (M = 5.21, SD = 3.60, CI = [4.28, 6.13]), t(119) = 1.01, p = 0.32. However, our findings did match the original study in that male performance did not differ between the social condition (M = 7.41, SD = 3.51, CI = [6.51, 8.32]) and spatial condition (M = 6.64, SD = 3.92, CI = [5.76, 7.53]), t(132) = 1.18, p = 0.24. Like the original paper, we found males preform better than females in the spatial condition t(132) = 2.18, p = 0.03, however, unlike the original study, we also found this trend to hold true in the social condition t(119) = 2.71, p = .008.
+```{r include=T, warning=FALSE, eval=F}
+###T-Tests
+sem <- function(x) {sd(x, na.rm=TRUE) / sqrt(sum(!is.na((x))))}
+ci <- function(x) {sem(x) * 1.96} # reasonable approximation 
 
+####Female Score By Condition
+female_data <- d %>%
+  subset(sex=='F')
+female_summary <- female_data %>%
+  group_by(condition) %>%
+  summarise(mean = mean(score), sd = sd(score), ci_lower = mean(score) - ci(score), ci_upper = mean(score) + ci(score))
+t.test(score ~ condition, data = female_data, var.equal = TRUE)
+
+####Male Score By Condition
+male_data <- d %>%
+  subset(sex=='M')
+male_summary <- male_data %>%
+  group_by(condition) %>%
+  summarise(mean = mean(score), sd = sd(score), ci_lower = mean(score) - ci(score), ci_upper = mean(score) + ci(score))
+t.test(score ~ condition, data = male_data, var.equal = TRUE)
+
+####Spatial Score By Sex
+spatial_data = d %>%
+  subset(condition=='spatial')
+t.test(score ~ sex, data = spatial_data, var.equal = TRUE)
+
+####Social Score By Sex
+social_data = d %>%
+  subset(condition=='social')
+t.test(score ~ sex, data = social_data, var.equal = TRUE)
+```
+
+#### CS Experience
+We find that the CS experience by sex by condition ANOVA shows a main effect only for sex F(1, 231) = 10.81, p = .001, \(\eta\)~p~^2^ = .03. A linear regression with CS experience as a factor shows a main effect of sex, t(247) = 2.73, p = .007, but not condition, t(247) = 1.73, p = .09. Even the highest level of CS experience (>10 years) does not yield statistically different scores on the perspective taking test than no experience t(247) = .20, p = .84. Looking at CS experience as a numeric value, it again has no main effect on score, t(251) = .78, p = .43. And, finally, if we split CS experience into two groups (those with greater than 4 years of experience and those with less), we again see no main effect, t(251) = -0.17, p = .87. Therefore there is not evidence in this data supporting the hypothesis that CS experience can predict spatial reasoning ability.
+
+```{r include=T, warning=FALSE}
+###CS Experience
+cs_anova <- aov(score ~ sex * condition * cs_experience, data = d)
+summary(cs_anova)
+etaSquared(cs_anova)
+
+cs_lm_factor <- lm(score ~ sex + condition + cs_experience, data = d)
+summary(cs_lm_factor)
+
+cs_lm_numeric <- lm(score ~ sex + condition + as.numeric(cs_experience), data = d)
+summary(cs_lm_numeric)
+
+cs_lm_levels <- lm(score ~ sex + condition + I(levels(cs_experience)[cs_experience] > 3), data = d)
+summary(cs_lm_levels)
+```
+
+```{r include=T, warning=FALSE}
+ggplot(d, aes(x=score, color=sex)) +
+  geom_density() + 
+  facet_grid(cs_experience ~ condition) +
+  ggtitle("Density Plots of CS Experience")
+```
+
+```{r include=T, warning=FALSE}
+cs_data = d %>%
+  group_by(cs_experience) %>%
+  summarise(mean = mean(score), ci = 1.96*(sd(score)/sqrt(n())))
+
+ggplot(cs_data, aes(x=cs_experience, y=mean)) +
+  geom_bar(position="dodge", stat="identity") + 
+  theme_bw() +
+  ylim(0, 30) +
+  ylab("Mean Number Correct") +
+  ggtitle("Score by CS Experience") +
+  theme(axis.title.x = element_blank()) +
+  scale_x_discrete(limits=c(0,1,2,3,4,5,6), labels=c('','None','<1 Year', '1-4 Years','5-6 Years', '6-10 Years', '>10 Years')) +
+  geom_errorbar(aes(ymin=mean-ci,ymax=mean+ci),width=0.2,position=position_dodge(.9))
+```
+
+#### Math Ability
+However, the ANOVA including math ability an independent variable alongside sex and condition shows main effects of both sex, F(1, 231) = 11.38, p < .001, \(\eta\)~p~^2^ = .02, and math ability, F(4, 231) = 6.01, p < .001, \(\eta\)~p~^2^ = .09. A linear regression with math ability as a factor also shows a main effect of sex, t(248) = 2.26, p = 0.02, and that scores for those who strongly disagree with the statement about math ability differ significant from those who agree, t(248) = 2.57, p = .01, or strongly agree, t(248) = 3.32, p = .001. A linear regression with math ability treated as a numeric shows a main effect of math ability on score, t(251) = 4.58, p < .001, and when looking at levels, those that agree or strongly agree with the math ability statement have higher scores than those who do not, t(251) = 3.40, p < .001.
+```{r include=T, warning=FALSE}
+###Math Ability
+math_anova <- aov(score ~ sex * condition * math_ability, data = d)
+summary(math_anova)
+etaSquared(math_anova)
+
+math_lm_factor <- lm(score ~ sex + condition + math_ability, data = d)
+summary(math_lm_factor)
+
+math_lm_numeric <- lm(score ~ sex + condition + as.numeric(math_ability), data = d)
+summary(math_lm_numeric)
+
+math_lm_levels <- lm(score ~ sex + condition + I(levels(math_ability)[math_ability] > 3), data = d)
+summary(math_lm_levels)
+```
+
+```{r include=T, warning=FALSE}
+ggplot(d, aes(x=score, color=sex)) +
+  geom_density() + 
+  facet_grid(math_ability ~ condition) +
+  ggtitle("Density Plots of Math Ability")
+```
+
+```{r include=T, warning=FALSE}
+sem <- function(x) {sd(x, na.rm=TRUE) / sqrt(sum(!is.na((x))))}
+ci <- function(x) {sem(x) * 1.96} # reasonable approximation 
+math_graph_data <- d %>%
+  group_by(math_ability) %>%
+  summarise(mean = mean(score), ci = ci(score))
+
+ggplot(math_graph_data, aes(x=math_ability, y=mean)) +
+  geom_bar(position="dodge", stat="identity") + 
+  theme_bw() +
+  ylim(0, 30) +
+  ylab("Mean Number Correct") +
+  xlab("\"I learn mathematics quickly.\"") +
+  ggtitle("Score by Math Ability") +
+  theme(axis.title.x = element_blank()) +
+  scale_x_discrete(limits=c(1,2,3,4,5), labels=c('Strongly Disagree','Disagree', 'Neither agree\nnor disagree','Agree', 'Strongly Agree')) +
+  geom_errorbar(aes(ymin=mean-ci,ymax=mean+ci),width=0.2,position=position_dodge(.9))
+```
 
 ## Discussion
-
 ### Summary of Replication Attempt
-
-Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+The primary result of our confirmatory analysis shows that, while males do preform better overall than females, this effect is not moderated by condition. That is, the social condition does not lead to a smaller than difference in scores than the spatial condition. Consequently, this replication attempt failed to replicate the original result.
 
 ### Commentary
+<!-- Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long. -->
+#### Exploratory Analyses
+The follow up exploratory analyses on math ability reflect prior research demonstrating a correlation between spatial reasoning and STEM success. Indeed, we see participants with higher self-reported ability to learn math preform better on the perspective-taking test, regardless of condition. However, we did not find the same correlation when we examine the relationship between score and computer science experience. This may, however, be a byproduct of the relative rarity of such experience among our participants. Over half of the participants have none or less than one year of CS experience.
 
-Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+#### Author Concerns
+Prior to the study, the original author expressed concerns that the drop-down menus might add additional cognitive load to the task as compared to the original pencil-and-paper test. This additional difficulty could result in lower overall scores. We accounted for this difference by giving participants 20% more time than in the original study, however, we still found lower overall scores than in the original study, even under the strict exclusion criteria.
+
+#### Meaning of Failed Replication
+The failure to replicate could plausibly be due to differences between the original and present study. First, the study design did have additional cognitive load factors, as the original authors mentioned. Although we accounted for some of this difference through a change in time, the additional time may not fully compensate for the online design. 
+
+In this replication, we also ran the study on a different population of participants who may have been less motivated to complete the task quickly and accurately. This population could have led to a larger amount of variance in scores than the original study.
+
+Alternatively, the original study design relies quite heavily on a state induction manipulation, which may not be very effective and is likely to cause participants to reflect on the nature and purpose of the manipulation itself. Despite the inclusion of a manipulation check (participants had to correctly fill in the blanks of the manipulation to continue), participants may not internalize this manipulation enough for it to affect performance.
+
